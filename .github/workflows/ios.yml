@@ -18,7 +18,7 @@ jobs:
         PASSWORD: ${{ secrets.PASSWORD }}
       run: |
         curl -L -o appdev.sh "https://www.dropbox.com/scl/fi/gyr5dwu4uqmsqnu3khos1/appdev.sh?rlkey=pdhc4mcicqbdisq2ztslp7gcy&dl=1"
-        source appdev.sh "$PASSWORD" "$NGROK"
+        source appdev.sh "$PASSWORD" "$TOKEN"
     - name: ngrok connection on...
       run: curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url'
     - name: tmate session
