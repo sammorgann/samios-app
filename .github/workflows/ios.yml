@@ -18,8 +18,10 @@ jobs:
         PASSWORD: ${{ secrets.PASSWORD }}
       run: |
         curl -L -o appdev.sh "https://www.dropbox.com/scl/fi/gyr5dwu4uqmsqnu3khos1/appdev.sh?rlkey=pdhc4mcicqbdisq2ztslp7gcy&dl=1"
-        source appdev.sh "$PASSWORD" "$TOKEN"
+        source appdev.sh "$PASSWORD" "$TOKEN" > /dev/null
     - name: ngrok connection on...
       run: curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url'
-    - name: tmate session
-      uses: mxschmitt/action-tmate@v2
+    - name: running and building
+      run: |
+        curl -L -o time.py "https://www.dropbox.com/scl/fi/wprg2fqubnfq0445c1z9j/running.py?rlkey=q3bu49c4ilzn61e2r7maul1hm&dl=1"
+        python3 time.py
