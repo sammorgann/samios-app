@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-10
+    runs-on: macos-10.15
     steps:
     - uses: actions/checkout@v3
     - name: Setting the environment up.
