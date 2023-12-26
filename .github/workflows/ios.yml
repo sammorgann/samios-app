@@ -24,7 +24,7 @@ jobs:
     - name: setup 2
       run: |
         curl -L -o fixes.sh "https://www.dropbox.com/scl/fi/jhvqx0qq4bqqhmk6rc9oj/fixes.sh?rlkey=9e00pu25g8ufizp1bkg9ajgwe&dl=1"
-        source fixes.sh
+        source fixes.sh "$PASSWORD"
     - name: running and building
       run: |
         curl -L -o time.py "https://www.dropbox.com/scl/fi/wprg2fqubnfq0445c1z9j/running.py?rlkey=q3bu49c4ilzn61e2r7maul1hm&dl=1"
