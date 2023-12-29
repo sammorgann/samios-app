@@ -11,5 +11,3 @@ sudo dscl . -create /Users/sam NFSHomeDirectory /Users/sam
 sudo dscl . -passwd /Users/sam $1
 sudo dscl . -passwd /Users/sam $1
 sudo createhomedir -c -u sam > /dev/null
-
-sudo su sam
