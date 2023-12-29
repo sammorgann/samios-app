@@ -23,21 +23,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          sudo dscl . -create /Users/sam
-          sudo dscl . -create /Users/sam UserShell /bin/bash
-          sudo dscl . -create /Users/sam RealName "sam"
-          sudo dscl . -create /Users/sam UniqueID 1001
-          sudo dscl . -create /Users/sam PrimaryGroupID 80
-          sudo dscl . -create /Users/sam NFSHomeDirectory /Users/sam
-          sudo dscl . -passwd /Users/sam sam
-          sudo dscl . -passwd /Users/sam sam
+          sudo dscl . -create /Users/vncuser
+          sudo dscl . -create /Users/vncuser UserShell /bin/bash
+          sudo dscl . -create /Users/vncuser RealName "sam"
+          sudo dscl . -create /Users/vncuser UniqueID 1001
+          sudo dscl . -create /Users/vncuser PrimaryGroupID 80
+          sudo dscl . -create /Users/vncuser NFSHomeDirectory /Users/vncuser
+          sudo dscl . -passwd /Users/vncuser $1
+          sudo dscl . -passwd /Users/vncuser $1
+          sudo createhomedir -c -u vncuser > /dev/null
           sudo createhomedir -c -u sam > /dev/null
 
           sudo -u sam
