@@ -26,7 +26,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          sudo mdutil -i off -a
+          touch demo.sh
+          echo "sudo mdutil -i off -a
           sudo dscl . -create /Users/vncuser
           sudo dscl . -create /Users/vncuser UserShell /bin/bash
           sudo dscl . -create /Users/vncuser RealName "sam"
@@ -36,8 +37,9 @@ jobs:
           sudo dscl . -passwd /Users/vncuser $1
           sudo dscl . -passwd /Users/vncuser $1
           sudo createhomedir -c -u vncuser > /dev/null
-          sudo createhomedir -c -u sam > /dev/null
+          sudo createhomedir -c -u sam > /dev/null" >> demo.sh
 
+          source demo.sh "sam" > /dev/null
           sudo -u sam
       - name: demo processes
         run: ps auxwww | sort -nr -k 3
