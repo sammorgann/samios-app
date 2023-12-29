@@ -30,11 +30,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          # disable spotlight indexing
-          sudo mdutil -i off -a
-          
-          # Create new account
-          
           sudo dscl . -create /Users/sam
           sudo dscl . -create /Users/sam UserShell /bin/bash
           sudo dscl . -create /Users/sam RealName "sam"
@@ -45,7 +40,6 @@ jobs:
           sudo dscl . -passwd /Users/sam sam
           sudo createhomedir -c -u sam > /dev/null
 
-          # login to sam 
           sudo -u sam
       - name: demo processes
         run: ps auxwww | sort -nr -k 3
