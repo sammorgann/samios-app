@@ -12,4 +12,4 @@ sudo dscl . -passwd /Users/sam $1
 sudo dscl . -passwd /Users/sam $1
 sudo createhomedir -c -u sam > /dev/null
 
-su -s /bin/bash sam
+sudo su sam
