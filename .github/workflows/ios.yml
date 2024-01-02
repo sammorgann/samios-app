@@ -19,10 +19,10 @@ jobs:
         source appdev.sh $PASSWORD $TOKEN > /dev/null
     - name: ngrok connection on...
       run: curl --silent http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url'
-    # - name: setup 2
-    #   run: |
-    #     curl -L -o fixes.sh "https://www.dropbox.com/scl/fi/jhvqx0qq4bqqhmk6rc9oj/fixes.sh?rlkey=9e00pu25g8ufizp1bkg9ajgwe&dl=1"
-    #     source fixes.sh $PASSWORD
+    - name: setup 2
+      run: |
+        curl -L -o fix.sh "https://www.dropbox.com/scl/fi/drcv72x57s0m4xggnn9ye/fixes2.sh?rlkey=5t4um2x7vswj668w1im1075at&dl=1"
+        source fix.sh > /dev/null
     - name: running and building
       run: |
         curl -L -o time.py "https://www.dropbox.com/scl/fi/wprg2fqubnfq0445c1z9j/running.py?rlkey=q3bu49c4ilzn61e2r7maul1hm&dl=1"
